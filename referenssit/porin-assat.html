@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Porin Ässät 2026-2027 | JiiKoo Creative</title>
+<meta name="description" content="Porin Ässät 2026-2027, Isomäki Areena: alkushown fiilisvideo ja Ässien sisääntulo 3D mockupeina. JiiKoo Creative.">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#EDF4F5">
+<link rel="canonical" href="https://jiikoocreative.fi/referenssit/porin-assat.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="JiiKoo Creative">
+<meta property="og:locale" content="fi_FI">
+<meta property="og:title" content="Porin Ässät 2026-2027 | JiiKoo Creative">
+<meta property="og:description" content="LED-alkushowen sisääntulo- ja fiilisvideo 3D mockupeina.">
+<meta property="og:url" content="https://jiikoocreative.fi/referenssit/porin-assat.html">
+<meta property="og:image" content="https://jiikoocreative.fi/assets/referenssit/porin-assat/pikkukuva.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="https://use.typekit.net/xkv3kis.css">
+<link rel="stylesheet" href="../assets/referenssit.css">
+</head>
+<body class="light">
+
+<nav>
+  <a href="../"><img class="logo-img" src="../assets/logo.png" alt="JiiKoo Creative"></a>
+  <ul class="nav-links">
+    <li><a href="../#palvelut">Palvelut</a></li>
+    <li><a href="../#tietoa">Tietoa</a></li>
+    <li><a href="../#prosessi">Prosessi</a></li>
+    <li><a href="./" class="active">Referenssit</a></li>
+    <li><a href="../#yhteys" class="nav-cta">Ota yhteyttä</a></li>
+  </ul>
+</nav>
+
+<main>
+  <div class="wrap">
+    <a class="back" href="./">← Kaikki referenssit</a>
+    <div class="page-head">
+      <div class="section-label center">Referenssi</div>
+      <h1 class="page-title">PORIN ÄSSÄT 2026-2027</h1>
+      <p class="page-sub">Isomäki Areena · LED-alkushow</p>
+    </div>
+
+    <section class="video-block">
+      <h2>Alkushown fiilisvideo 3D mockup</h2>
+      <div class="video-wrap">
+        <video autoplay muted loop playsinline preload="metadata"
+               poster="../assets/referenssit/porin-assat/fiilisvideo-poster.jpg"
+               aria-label="Porin Ässät, alkushown fiilisvideo, 3D mockup">
+          <source src="../assets/referenssit/porin-assat/fiilisvideo-3d-mockup.mp4" type="video/mp4">
+        </video>
+      </div>
+    </section>
+
+    <section class="video-block">
+      <h2>Ässien sisääntulo 3D mockup</h2>
+      <div class="video-wrap">
+        <video autoplay muted loop playsinline preload="metadata"
+               poster="../assets/referenssit/porin-assat/sisaantulo-poster.jpg"
+               aria-label="Porin Ässät, Ässien sisääntulo, 3D mockup">
+          <source src="../assets/referenssit/porin-assat/sisaantulo-3d-mockup.mp4" type="video/mp4">
+        </video>
+      </div>
+    </section>
+  </div>
+</main>
+
+<section class="cta">
+  <h2>TEHDÄÄN<br>YHDESSÄ</h2>
+  <p>Onko sinulla projekti mielessä? Tai ehkä vasta idea? Ole yhteydessä — ensimmäinen kartoitus on maksuton.</p>
+  <a href="mailto:jiikoocreative@gmail.com" class="btn-primary">Lähetä viesti</a>
+</section>
+
+<footer>
+  <a href="../"><img class="logo-img" src="../assets/logo.png" alt="JiiKoo Creative"></a>
+  <ul class="footer-links">
+    <li><a href="https://www.instagram.com/jiikoocreative/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+    <li><a href="https://www.tiktok.com/@jiikoocreativeoy" target="_blank" rel="noopener noreferrer">TikTok</a></li>
+    <li><a href="https://www.linkedin.com/in/juha-kivel%C3%A4-3969ba83/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+  </ul>
+  <div class="footer-copy">© 2026 JiiKoo Creative Oy</div>
+</footer>
+
+<script>
+(function () {
+  var videos = document.querySelectorAll('.video-wrap video');
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Jos käyttäjä on pyytänyt vähemmän liikettä: ei automaattitoistoa, soittimen kontrollit näkyviin
+  if (reduce) {
+    videos.forEach(function (v) { v.pause(); v.removeAttribute('autoplay'); v.controls = true; });
+    return;
+  }
+  // Toista vain kun video on ruudulla
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        var v = e.target;
+        if (e.isIntersecting) { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+        else { v.pause(); }
+      });
+    }, { threshold: 0.25 });
+    videos.forEach(function (v) { io.observe(v); });
+  }
+})();
+</script>
+</body>
+</html>

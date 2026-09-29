@@ -1,0 +1,189 @@
+/* JiiKoo Creative – referenssisivujen yhteiset tyylit
+   Käytössä: referenssit/index.html ja referenssit/*.html (projektisivut) */
+
+:root {
+  --bg: #050505;
+  --bg2: #0A0F1C;
+  --text: #FFFFFF;
+  --muted: #9CA3AF;
+  --accent: #00AFFF;
+  --accent-text: #00AFFF;
+  --line: #ffffff14;
+}
+
+/* Vaalea teema projektisivuille (videosivun tausta #EDF4F5) */
+body.light {
+  --bg: #EDF4F5;
+  --bg2: #E1ECEE;
+  --text: #0B1116;
+  --muted: #4A5560;
+  --accent-text: #00699F;
+  --line: #0b111622;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'obviously', sans-serif;
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.4rem 5vw;
+  background: linear-gradient(to bottom, var(--bg), transparent);
+  backdrop-filter: blur(8px);
+}
+nav .logo-img { height: 36px; width: auto; display: block; }
+body.light nav .logo-img { filter: invert(1); }
+
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a {
+  color: var(--muted); text-decoration: none;
+  font-size: 0.85rem; font-weight: 500; letter-spacing: 0.08em;
+  text-transform: uppercase; transition: color 0.2s;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--accent-text); }
+
+.nav-cta {
+  border: 1px solid var(--accent-text);
+  color: var(--accent-text) !important;
+  padding: 0.5rem 1.2rem; border-radius: 3px;
+  transition: background 0.2s, color 0.2s !important;
+}
+.nav-cta:hover { background: var(--accent) !important; color: #000 !important; }
+
+/* ── SISÄLTÖ ── */
+main { padding: 9rem 5vw 5rem; }
+.wrap { max-width: 1100px; margin: 0 auto; }
+
+.back {
+  display: inline-block; margin-bottom: 2.4rem;
+  color: var(--muted); text-decoration: none;
+  font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+  transition: color 0.2s;
+}
+.back:hover { color: var(--accent-text); }
+
+.section-label {
+  font-size: 0.72rem; font-weight: 500; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--accent-text);
+  margin-bottom: 1rem;
+  display: flex; align-items: center; gap: 0.7rem;
+}
+.section-label::before { content: ''; width: 24px; height: 1px; background: var(--accent-text); }
+.section-label.center { justify-content: center; }
+.section-label.center::after { content: ''; width: 24px; height: 1px; background: var(--accent-text); }
+.page-head { text-align: center; }
+.page-head .page-sub { margin-left: auto; margin-right: auto; }
+
+h1.page-title {
+  font-weight: 700; font-size: clamp(2.2rem, 5vw, 4.2rem);
+  line-height: 1.05; margin-bottom: 1rem;
+}
+.page-sub {
+  color: var(--muted); max-width: 560px;
+  font-size: 1rem; line-height: 1.7; font-weight: 300;
+  margin-bottom: 3.5rem;
+}
+
+/* ── REFERENSSIRUUDUKKO ── */
+.ref-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 520px));
+  justify-content: center;
+  gap: 3rem 2rem;
+}
+.ref-card { display: block; color: inherit; text-decoration: none; }
+.ref-thumb {
+  position: relative; aspect-ratio: 16 / 9; overflow: hidden;
+  background: var(--bg2); border: 1px solid var(--line); border-radius: 4px;
+}
+.ref-thumb img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform 0.5s ease;
+}
+.ref-card:hover .ref-thumb img { transform: scale(1.04); }
+.ref-thumb::after {
+  content: ''; position: absolute; inset: 0;
+  box-shadow: inset 0 0 0 1px #00AFFF00; border-radius: 4px;
+  transition: box-shadow 0.3s;
+}
+.ref-card:hover .ref-thumb::after { box-shadow: inset 0 0 0 2px #00AFFF; }
+.ref-count {
+  position: absolute; left: 0.9rem; bottom: 0.9rem;
+  background: #050505cc; color: #fff; backdrop-filter: blur(4px);
+  font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.35rem 0.7rem; border-radius: 3px;
+}
+.ref-card h2 {
+  text-align: center; font-size: clamp(1.2rem, 2.4vw, 1.7rem); font-weight: 500;
+  margin-bottom: 1.2rem; letter-spacing: 0.005em;
+}
+
+/* ── PROJEKTISIVUN VIDEOT ── */
+.video-block { margin-top: 4rem; }
+.video-block:first-of-type { margin-top: 0; }
+.video-block h2 {
+  text-align: center;
+  font-size: clamp(1.2rem, 2.4vw, 1.7rem); font-weight: 500;
+  margin-bottom: 1.2rem; letter-spacing: 0.005em;
+}
+.video-wrap {
+  position: relative; aspect-ratio: 16 / 9; background: #000;
+  border-radius: 4px; overflow: hidden;
+  box-shadow: 0 18px 50px #0b111626;
+}
+.video-wrap video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* ── CTA ── */
+.cta {
+  background: var(--bg2); text-align: center; padding: 6rem 5vw;
+}
+.cta h2 {
+  font-weight: 700; font-size: clamp(2.4rem, 6vw, 4.8rem);
+  line-height: 1.02; margin-bottom: 1.2rem;
+}
+.cta p {
+  color: var(--muted); max-width: 420px; margin: 0 auto 2rem;
+  font-size: 1rem; line-height: 1.7; font-weight: 300;
+}
+.btn-primary {
+  display: inline-block; background: #00AFFF; color: #000; font-weight: 600;
+  padding: 0.85rem 2rem; border-radius: 3px; text-decoration: none;
+  font-size: 0.9rem; letter-spacing: 0.05em;
+  transition: box-shadow 0.2s, transform 0.15s; box-shadow: 0 0 24px #00AFFF55;
+}
+.btn-primary:hover { box-shadow: 0 0 40px #00AFFF99; transform: translateY(-1px); }
+
+/* ── FOOTER ── */
+footer {
+  border-top: 1px solid var(--line);
+  padding: 2.5rem 5vw; display: flex; align-items: center;
+  justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+}
+footer .logo-img { height: 28px; width: auto; display: block; }
+body.light footer .logo-img { filter: invert(1); }
+.footer-links { display: flex; gap: 2rem; list-style: none; }
+.footer-links a {
+  color: var(--muted); text-decoration: none;
+  font-size: 0.8rem; letter-spacing: 0.06em; transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--accent-text); }
+.footer-copy { color: var(--muted); font-size: 0.75rem; letter-spacing: 0.05em; }
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: #007ACC; border-radius: 2px; }
+
+@media (max-width: 768px) {
+  main { padding-top: 7.5rem; }
+  .nav-links li:not(:last-child) { display: none; }
+  .video-block { margin-top: 2.6rem; }
+  .ref-grid { grid-template-columns: 1fr; }
+}
